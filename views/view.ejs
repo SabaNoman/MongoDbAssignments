@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Users</title>    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <%- include('./partials/navbar') %>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <h1 class="mt-4 px-md-4">Welcome to the Admin Dashboard</h1>
+            <div class="pt-5 px-md-4">
+
+            <div class="table-wrapper">
+                <h2>List of Users</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% userData.forEach(function(user){ %>
+                            <tr>
+                                <td><%= user._id %></td>
+                                <td><%= user.name %></td>
+                                <td><%= user.email %></td>
+
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+</body>
+</html>

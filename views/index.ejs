@@ -1,37 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>USING EXPRESS</h1>
-    <div class="table-wrapper">
-        <h2>List of Users</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Age</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% userData.forEach(function(user){ %>
-                    <tr>
-                        <td><%= user._id %></td>
-                        <td><%= user.firstname %></td>
-                        <td><%= user.lastname %></td>
-                        <td><%= user.age %></td>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Navbar -->
+            <%- include('./partials/navbar') %>
+            
+            <!-- Main content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <h1 class="mt-4 px-md-4">Welcome to the Admin Dashboard</h1>
+                <div class="pt-5 px-md-4">
+                <p class="lead">Choose an option below to manage your users.</p>
 
-                    </tr>
-                <% }) %>
-            </tbody>
-        </table>
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <button class="btn" id="viewUsersBtn" style="background-color: #0508bde1; color: white; width: 100%;">View Users</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn" id="addUserBtn" style="background-color: #66b2ff; color: white; width: 100%;">Add User</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn" id="editUserBtn" style="background-color: #ffcc00; color: white; width: 100%;">Edit User</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn" id="deleteUserBtn" style="background-color: #ff4500; color: white; width: 100%;">Delete User</button>
+                    </div>
+                </div>
+                </div>
+            </main>
+        </div>
     </div>
-    
+
+    <script>
+    document.getElementById('viewUsersBtn').addEventListener('click', function () {
+        window.location.href = '/viewUsers'; 
+    });
+    document.getElementById('addUserBtn').addEventListener('click', function () {
+        window.location.href = '/addUser'; 
+    });
+    document.getElementById('editUserBtn').addEventListener('click', function () {
+        window.location.href = '/editUser'; 
+    });
+    document.getElementById('deleteUserBtn').addEventListener('click', function () {
+        window.location.href = '/deleteUser'; 
+    });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
